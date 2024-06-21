@@ -1,4 +1,5 @@
 import api.HotelResource;
+import exception.InvalidEmailException;
 import model.reservation.Reservation;
 import model.room.IRoom;
 
@@ -184,8 +185,8 @@ public class MainMenu {
             System.out.println("Account created successfully!");
 
             printMainMenu();
-        } catch (IllegalArgumentException ex) {
-            System.out.println(ex.getLocalizedMessage());
+        } catch (InvalidEmailException ex) {
+            System.out.println(ex.getMessage());
             createAccount();
         }
     }

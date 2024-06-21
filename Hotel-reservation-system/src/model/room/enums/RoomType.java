@@ -1,13 +1,15 @@
 package model.room.enums;
 
 
+import exception.InvalidRoomTypeException;
+
 public enum RoomType {
     SINGLE("1"),
     DOUBLE("2");
 
     public final String label;
 
-    private RoomType(String label) {
+    RoomType(String label) {
         this.label = label;
     }
 
@@ -17,6 +19,6 @@ public enum RoomType {
                 return roomType;
             }
         }
-        throw new IllegalArgumentException();
+        throw new InvalidRoomTypeException();
     }
 }

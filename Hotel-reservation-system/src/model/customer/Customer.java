@@ -1,12 +1,13 @@
 package model.customer;
 
+import exception.InvalidEmailException;
+
 import java.util.regex.Pattern;
 
 
 public class Customer {
 
     private static final String EMAIL_REGEX_PATTERN = "^(.+)@(.+).(.+)$";
-
     private final String firstName;
     private final String lastName;
     private final String email;
@@ -23,7 +24,7 @@ public class Customer {
         Pattern pattern = Pattern.compile(EMAIL_REGEX_PATTERN);
 
         if(!pattern.matcher(email).matches()) {
-            throw new IllegalArgumentException("Invalid email");
+            throw new InvalidEmailException();
         }
     }
 

@@ -3,7 +3,7 @@ import model.customer.Customer;
 import model.room.IRoom;
 import model.room.Room;
 import model.room.enums.RoomType;
-
+import exception.InvalidRoomTypeException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
@@ -102,8 +102,8 @@ public class AdminMenu {
     private static RoomType enterRoomType(final Scanner scanner) {
         try {
             return RoomType.valueOfLabel(scanner.nextLine());
-        } catch (IllegalArgumentException exp) {
-            System.out.println("Invalid room type! Please, choose 1 for single bed or 2 for double bed:");
+        } catch (InvalidRoomTypeException exp) {
+            System.out.println(exp.getMessage());
             return enterRoomType(scanner);
         }
     }
